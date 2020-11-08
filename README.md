@@ -2,18 +2,17 @@
 
 ## Project setup
 ```
-npm install
+npm i
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm start
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Description
+
+This repo was created in an education environnement for EFREI Paris for a semster project
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
