@@ -15,7 +15,7 @@ npm start
 
 ### Description
 
-This repo was created in an education environnement for EFREI Paris for a semster project
+This repo was created in an education environnement for EFREI Paris for a semester project
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
