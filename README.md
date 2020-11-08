@@ -2,6 +2,9 @@
 
 ## Project setup
 ```
+cd /YOUR_DIRECTORY/
+git clone https://github.com/MariusBallot/11-2020-EDroid-Remote.git
+cd 11-2020-EDroid-Remote
 npm i
 ```
 
