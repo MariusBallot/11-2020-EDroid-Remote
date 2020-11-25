@@ -4,6 +4,17 @@
   </div>
 </template>
 
+<script>
+import SocketController from "./classes/SocketController";
+
+export default {
+  created() {
+    console.log("kop");
+    SocketController.init();
+  },
+};
+</script>
+
 
 <style lang="stylus">
 * {

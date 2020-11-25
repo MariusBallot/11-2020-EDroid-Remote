@@ -1,13 +1,16 @@
-let flags = {
-    up: false,
-    down: false,
-    left: false,
-    right: false,
-}
+import SocketController from './SocketController'
+
+
 
 class Controls {
     constructor() {
         this.bind()
+        this.inputs = {
+            up: false,
+            down: false,
+            left: false,
+            right: false,
+        }
     }
 
     start() {
@@ -20,19 +23,19 @@ class Controls {
 
         switch (c) {
             case 90:
-                flags.up = true
+                this.inputs.up = true
                 break;
             case 83:
-                flags.down = true
+                this.inputs.down = true
                 break;
             case 81:
-                flags.left = true
+                this.inputs.left = true
                 break;
             case 68:
-                flags.right = true
+                this.inputs.right = true
                 break;
         }
-
+        SocketController.socket.emit('keyState', this.inputs)
     }
 
     onKeyUp(e) {
@@ -40,16 +43,16 @@ class Controls {
 
         switch (c) {
             case 90:
-                flags.up = false
+                this.inputs.up = false
                 break;
             case 83:
-                flags.down = false
+                this.inputs.down = false
                 break;
             case 81:
-                flags.left = false
+                this.inputs.left = false
                 break;
             case 68:
-                flags.right = false
+                this.inputs.right = false
                 break;
         }
     }

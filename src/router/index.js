@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Remote from '../views/Remote.vue'
+import Receiver from '../views/Receiver.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/remote',
     name: 'Remote',
     component: Remote
+  },
+  {
+    path: '/receiver',
+    name: 'Receiver',
+    component: Receiver
   }
 ]
 

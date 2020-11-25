@@ -13,4 +13,7 @@ export default {
 
 <style scoped lang="stylus">
 .commands {
-}</style>
+  position: relative;
+  z-index: 1;
+}
+</style>
