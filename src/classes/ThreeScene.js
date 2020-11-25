@@ -2,6 +2,7 @@ import * as THREE from "three"
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import RAF from '../utils/RAF'
 import GLCar from './GLCar'
+import MyGui from '../utils/MyGUI'
 
 class ThreeScene {
     constructor() {
@@ -29,10 +30,11 @@ class ThreeScene {
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
         this.camera.position.copy(this.sceneParams.camDistance)
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement)
-        this.controls.enabled = true
-        this.controls.maxDistance = 1500
-        this.controls.minDistance = 0
+        this.camera.lookAt(0, 0, 0)
+        // this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+        // this.controls.enabled = true
+        // this.controls.maxDistance = 1500
+        // this.controls.minDistance = 0
 
         let light = new THREE.AmbientLight()
         let pointLight = new THREE.PointLight()
@@ -42,9 +44,9 @@ class ThreeScene {
         this.scene.add(pointLight)
 
         const cube = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshNormalMaterial())
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 500; i++) {
             let c = cube.clone()
-            c.position.set(Math.random() * 100, -0.1, Math.random() * 100)
+            c.position.set((Math.random() - 0.5) * 200, -0.1, (Math.random() - 0.5) * 200)
             this.scene.add(c)
         }
 
@@ -53,8 +55,8 @@ class ThreeScene {
         this.scene.add(floor)
         floor.rotateX(-Math.PI / 2)
 
+        MyGui.start()
         GLCar.init(this.scene)
-
         window.addEventListener("resize", this.resizeCanvas)
         RAF.subscribe('threeSceneUpdate', this.update)
     }

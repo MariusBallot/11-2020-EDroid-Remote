@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import Controls from '../classes/Controls'
 import RAF from '../utils/RAF'
+import MyGui from '../utils/MyGUI'
 
 class GLCar {
     constructor() {
@@ -16,11 +17,16 @@ class GLCar {
             angle: 0,
             angleSpeed: 0.1,
         }
+
     }
 
     init(scene) {
         this.scene = scene
         this.mLoader.load('./models/carProto.glb', this.carLoaded)
+
+        MyGui.gui.add(this.carParams, "speed", 0.01, 1)
+        MyGui.gui.add(this.carParams, "angleSpeed", 0.01, 0.2)
+
     }
 
     carLoaded(glb) {

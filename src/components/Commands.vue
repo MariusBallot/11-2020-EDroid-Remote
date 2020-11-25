@@ -15,5 +15,7 @@ export default {
 .commands {
   position: relative;
   z-index: 1;
+  display: block;
+  pointer-events: none;
 }
 </style>

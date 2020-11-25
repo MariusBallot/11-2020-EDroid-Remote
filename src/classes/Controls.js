@@ -1,7 +1,5 @@
 import SocketController from './SocketController'
 
-
-
 class Controls {
     constructor() {
         this.bind()
